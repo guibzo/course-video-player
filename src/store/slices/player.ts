@@ -1,0 +1,84 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const playerSlice = createSlice({
+    name: "player",
+    initialState: {
+        course: {
+            modules: [
+                {
+                    id: "1",
+                    title: "Iniciando com React",
+                    lessons: [
+                        {
+                            id: "OmmJBfcMJA8",
+                            title: "CSS Modules",
+                            duration: "13:45",
+                        },
+                        {
+                            id: "FdePtO5JSd0",
+                            title: "Estilização do Post",
+                            duration: "10:05",
+                        },
+                        {
+                            id: "Nf0uyb7u4_Y",
+                            title: "Componente: Header",
+                            duration: "06:33",
+                        },
+                        {
+                            id: "0apUGZTyLDE",
+                            title: "Componente: Sidebar",
+                            duration: "09:12",
+                        },
+                        {
+                            id: "GWwuQl0jXU4",
+                            title: "CSS Global",
+                            duration: "03:23",
+                        },
+                        {
+                            id: "EbFA4RQrc0w",
+                            title: "Form de comentários",
+                            duration: "11:34",
+                        },
+                    ],
+                },
+                {
+                    id: "2",
+                    title: "Estrutura da aplicação",
+                    lessons: [
+                        {
+                            id: "8ckA0khV9lk",
+                            title: "Componente: Comment",
+                            duration: "13:45",
+                        },
+                        {
+                            id: "vfJmFLIbFVc",
+                            title: "Responsividade",
+                            duration: "10:05",
+                        },
+                        {
+                            id: "GcfNr2lZbyA",
+                            title: "Interações no JSX",
+                            duration: "06:33",
+                        },
+                        {
+                            id: "MnpuK0MK4yo",
+                            title: "Utilizando estado",
+                            duration: "09:12",
+                        },
+                    ],
+                },
+            ],
+        },
+        currentModuleIndex: 0,
+        currentLessonIndex: 0,
+    },
+    reducers: {
+        play: (state, action) => {
+            state.currentModuleIndex = action.payload[0];
+            state.currentLessonIndex = action.payload[1];
+        },
+    },
+});
+
+export const player = playerSlice.reducer;
+export const { play } = playerSlice.actions;

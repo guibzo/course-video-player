@@ -1,1 +1,1 @@
-# Redux + Zustand
+# Redux + Zustand Application
