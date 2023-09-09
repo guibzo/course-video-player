@@ -4,9 +4,9 @@ import { Player } from "./pages/Player";
 import { store } from "./store";
 
 export function App() {
-	return (
-		<ReduxProvider store={store}>
-			<Player />
-		</ReduxProvider>
-	);
+    return (
+        <ReduxProvider store={store}>
+            <Player />
+        </ReduxProvider>
+    );
 }
