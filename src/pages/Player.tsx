@@ -2,11 +2,12 @@ import { useEffect } from "react";
 
 import { MessageCircle } from "lucide-react";
 
+import { useAppSelector } from "../store";
+import { useCurrentLesson } from "../store/slices/player";
+
 import { Header } from "../components/Header";
 import { Module } from "../components/Module";
 import { Video } from "../components/Video";
-import { useAppSelector } from "../store";
-import { useCurrentLesson } from "../store/slices/player";
 
 export function Player() {
     const modules = useAppSelector((store) => store.player.course.modules); // pode-se usar do return e desestruturação pra puxar mais de 1 dado
