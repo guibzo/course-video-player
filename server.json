@@ -8,32 +8,32 @@
                     "title": "Iniciando com React",
                     "lessons": [
                         {
-                            "id": "Jai8w6K_GnY",
+                            "id": "OmmJBfcMJA8",
                             "title": "CSS Modules",
                             "duration": "13:45"
                         },
                         {
-                            "id": "w-DW4DhDfcw",
+                            "id": "FdePtO5JSd0",
                             "title": "Estilização do Post",
                             "duration": "10:05"
                         },
                         {
-                            "id": "D83-55LUdKE",
+                            "id": "Nf0uyb7u4_Y",
                             "title": "Componente: Header",
                             "duration": "06:33"
                         },
                         {
-                            "id": "W_ATsETujaY",
+                            "id": "0apUGZTyLDE",
                             "title": "Componente: Sidebar",
                             "duration": "09:12"
                         },
                         {
-                            "id": "Pj8dPeameYo",
+                            "id": "GWwuQl0jXU4",
                             "title": "CSS Global",
                             "duration": "03:23"
                         },
                         {
-                            "id": "8KBq2vhwbac",
+                            "id": "EbFA4RQrc0w",
                             "title": "Form de comentários",
                             "duration": "11:34"
                         }
@@ -44,22 +44,22 @@
                     "title": "Estrutura da aplicação",
                     "lessons": [
                         {
-                            "id": "gE48FQXRZ_o",
+                            "id": "8ckA0khV9lk",
                             "title": "Componente: Comment",
                             "duration": "13:45"
                         },
                         {
-                            "id": "Ng_Vk4tBl0g",
+                            "id": "vfJmFLIbFVc",
                             "title": "Responsividade",
                             "duration": "10:05"
                         },
                         {
-                            "id": "h5JA3wfuW1k",
+                            "id": "GcfNr2lZbyA",
                             "title": "Interações no JSX",
                             "duration": "06:33"
                         },
                         {
-                            "id": "1G0vSTqWELg",
+                            "id": "MnpuK0MK4yo",
                             "title": "Utilizando estado",
                             "duration": "09:12"
                         }
