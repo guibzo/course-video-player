@@ -1,8 +1,7 @@
 import * as Collapsible from "@radix-ui/react-collapsible";
-
 import { ChevronDown } from "lucide-react";
-import { useAppDispatch, useAppSelector } from "../store";
-import { play } from "../store/slices/player";
+
+import { useStore } from "../zustand-store";
 import { Lesson } from "./Lesson";
 
 interface ModuleProps {
@@ -12,18 +11,15 @@ interface ModuleProps {
 }
 
 export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
-    const dispatch = useAppDispatch();
-
-    const { currentModuleIndex, currentLessonIndex } = useAppSelector(
+    const { currentLessonIndex, currentModuleIndex, play, lessons } = useStore(
         (state) => {
-            const { currentModuleIndex, currentLessonIndex } = state.player;
-
-            return { currentModuleIndex, currentLessonIndex };
+            return {
+                currentLessonIndex: state.currentLessonIndex,
+                currentModuleIndex: state.currentModuleIndex,
+                play: state.play,
+                lessons: state.course?.modules[moduleIndex].lessons,
+            };
         }
-    );
-
-    const lessons = useAppSelector(
-        (store) => store.player.course?.modules[moduleIndex].lessons
     );
 
     return (
@@ -39,6 +35,7 @@ export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
                         {amountOfLessons} aulas
                     </span>
                 </div>
+
                 <ChevronDown className="w-5 h-5 ml-auto text-zinc-400 group-data-[state=open]:rotate-180 transition-transform" />
             </Collapsible.Trigger>
 
@@ -57,9 +54,7 @@ export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
                                     duration={lesson.duration}
                                     isCurrent={isCurrent}
                                     onPlay={() =>
-                                        dispatch(
-                                            play([moduleIndex, lessonIndex])
-                                        )
+                                        play([moduleIndex, lessonIndex])
                                     }
                                 />
                             );
