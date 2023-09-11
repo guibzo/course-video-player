@@ -2,20 +2,28 @@ import { useEffect } from "react";
 
 import { MessageCircle } from "lucide-react";
 
-import { useAppSelector } from "../store";
-import { useCurrentLesson } from "../store/slices/player";
+import { useAppDispatch, useAppSelector } from "../store";
+import { loadCourse, useCurrentLesson } from "../store/slices/player";
 
 import { Header } from "../components/Header";
 import { Module } from "../components/Module";
 import { Video } from "../components/Video";
 
 export function Player() {
-    const modules = useAppSelector((store) => store.player.course.modules); // pode-se usar do return e desestruturação pra puxar mais de 1 dado
+    const dispatch = useAppDispatch();
+
+    const modules = useAppSelector((store) => store.player.course?.modules); // pode-se usar do return e desestruturação pra puxar mais de 1 dado
 
     const { currentLesson } = useCurrentLesson();
 
     useEffect(() => {
-        document.title = `${currentLesson.title}`;
+        dispatch(loadCourse());
+    }, []);
+
+    useEffect(() => {
+        if (currentLesson) {
+            document.title = `${currentLesson.title}`;
+        }
     }, [currentLesson]);
 
     return (
@@ -35,16 +43,17 @@ export function Player() {
                         <Video />
                     </div>
                     <aside className="w-80 absolute top-0 bottom-0 right-0 border-l divide-y-2 divide-zinc-900 border-zinc-800 bg-zinc-900 overflow-y-scroll scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-zinc-700">
-                        {modules.map((module, index) => {
-                            return (
-                                <Module
-                                    key={module.id}
-                                    moduleIndex={index}
-                                    title={module.title}
-                                    amountOfLessons={module.lessons.length}
-                                />
-                            );
-                        })}
+                        {modules &&
+                            modules.map((module, index) => {
+                                return (
+                                    <Module
+                                        key={module.id}
+                                        moduleIndex={index}
+                                        title={module.title}
+                                        amountOfLessons={module.lessons.length}
+                                    />
+                                );
+                            })}
                     </aside>
                 </main>
             </div>
