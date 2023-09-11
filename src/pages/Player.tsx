@@ -22,7 +22,7 @@ export function Player() {
 
     useEffect(() => {
         if (currentLesson) {
-            document.title = `${currentLesson.title}`;
+            document.title = `${currentLesson.title} | Curso`;
         }
     }, [currentLesson]);
 

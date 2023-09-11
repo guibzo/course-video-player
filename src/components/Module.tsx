@@ -39,7 +39,6 @@ export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
                         {amountOfLessons} aulas
                     </span>
                 </div>
-
                 <ChevronDown className="w-5 h-5 ml-auto text-zinc-400 group-data-[state=open]:rotate-180 transition-transform" />
             </Collapsible.Trigger>
 
